@@ -4,18 +4,42 @@
         <attribute name="name" value="manejo de archivos"/>
         <attribute name="authors" value="murie"/>
         <attribute name="about" value=""/>
-        <attribute name="saved" value="2026-07-09 07:26:59 p.&#8239;m."/>
+        <attribute name="saved" value="2026-07-09 08:59:39 p.&#8239;m."/>
         <attribute name="created" value="bXVyaWU7TEFQVE9QLU42Tzc1RlFQOzIwMjYtMDctMDk7MDY6MzM6MDAgcC7igK9tLjsxMTI4Mg=="/>
-        <attribute name="edited" value="bXVyaWU7TEFQVE9QLU42Tzc1RlFQOzIwMjYtMDctMDk7MDc6MjY6NTkgcC7igK9tLjszOzExNDA5"/>
+        <attribute name="edited" value="bXVyaWU7TEFQVE9QLU42Tzc1RlFQOzIwMjYtMDctMDk7MDg6NTk6MzkgcC7igK9tLjs0OzExNDE1"/>
     </attributes>
     <function name="Main" type="None" variable="">
         <parameters/>
+        <body>
+            <call expression="MILNumeros"/>
+        </body>
+    </function>
+    <function name="MILNumeros" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Linea, NombreArchivo" type="String" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <assign variable="NombreArchivo" expression="&quot;MILNumeros.txt&quot;"/>
+            <open expression="NombreArchivo" mode="write"/>
+            <for variable="i" start="1" end="1000" direction="inc" step="1">
+                <write expression="i"/>
+            </for>
+        </body>
+    </function>
+    <function name="PalabrasIngles" type="None" variable="">
+        <parameters>
+            <parameter name="NombreArchivo" type="String" array="False"/>
+        </parameters>
         <body>
             <declare name="Linea, NombreArchivo" type="String" array="False" size=""/>
             <declare name="i" type="Integer" array="False" size=""/>
             <assign variable="NombreArchivo" expression="&quot;pablrasingles.txt&quot;"/>
             <open expression="NombreArchivo" mode="read"/>
-            <while expression="!EOF()"/>
+            <while expression="!EOF()">
+                <read variable="Linea"/>
+                <output expression="Linea" newline="True"/>
+            </while>
+            <close mode="read"/>
         </body>
     </function>
 </flowgorithm>
